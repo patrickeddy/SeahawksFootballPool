@@ -1,0 +1,25 @@
+<ion-view title="Results">
+    <ion-content class="padding">
+        <h1>Game Results</h1>
+        <p>SeaHawks - Other Team</p>
+        <p>Ex: 21 - 0</p>
+        <form name="gameResultsForm" ng-submit="generateWinners()">
+            <div class="list">
+                <label class="item item-input">
+                    <input type="text" placeholder="Quarter 1" ng-model="game.qtr1" required>
+                </label>
+                <label class="item item-input">
+                    <input type="text" placeholder="Quarter 2" ng-model="game.qtr2" required>
+                </label>
+                <label class="item item-input">
+                    <input type="text" placeholder="Quarter 3" ng-model="game.qtr3" required>
+                </label>
+                <label class="item item-input">
+                    <input type="text" placeholder="Quarter 4" ng-model="game.qtr4" required>
+                </label>
+            </div>
+            <input class="button button-block button-positive" type="submit" value="Get Winners">
+            </button>
+        </form>
+    </ion-content>
+</ion-view>

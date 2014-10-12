@@ -1,0 +1,12 @@
+<ion-view title="Players">
+    <ion-content>
+        <ion-nav-buttons side="right">
+            <button class="button-icon icon ion-ios7-plus" ui-sref="tab.new-player"></button>
+        </ion-nav-buttons>
+        <ion-list>
+            <ion-item ng-repeat="player in players" type="item-text-wrap" ng-click="deletePlayer(player.id)">
+                {{player.name}}
+            </ion-item>
+        </ion-list>
+    </ion-content>
+</ion-view>

@@ -1,0 +1,32 @@
+<ion-view title="Football Pool">
+    <ion-content class="padding">
+        <div class="list" ng-show="winners">
+            <h1>Last Game Winners</h1>
+            <label class="item list-item">
+                <h2>Quarter 1</h2>
+                <p>{{winners[0].score}} | <strong>{{winners[0].name}}</strong>
+                </p>
+            </label>
+            <label class="item list-item">
+                <h2>Quarter 2</h2>
+                <p>{{winners[1].score}} | <strong>{{winners[1].name}}</strong>
+                </p>
+            </label>
+            <label class="item list-item">
+                <h2>Quarter 3</h2>
+                <p>{{winners[2].score}} | <strong>{{winners[2].name}}</strong>
+                </p>
+            </label>
+            <label class="item list-item">
+                <h2>Quarter 4</h2>
+                <p>{{winners[3].score}} | <strong>{{winners[3].name}}</strong>
+                </p>
+            </label>
+        </div>
+        <div class="padding" ng-hide="winners" style="text-align:center;">
+            <h3>The winners of the last game show up here.</h3>
+            <p>Here's a picture of a football to get you started.</p>
+            <img class="padding" src="img/football.png" width=40% />
+        </div>
+    </ion-content>
+</ion-view>

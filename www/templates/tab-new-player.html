@@ -1,0 +1,9 @@
+<ion-view title="Add Player">
+    <ion-content class="padding">
+        <h1>Add a new player</h1>
+        <form name="playerForm" ng-submit="addPlayer()">
+            <input id="player-name" class="item item-full item-input" type="text" placeholder="Name" ng-model="player.name" required/>
+            <input class="button button-block button-positive" type="submit" value="Add Player">
+        </form>
+    </ion-content>
+</ion-view>
