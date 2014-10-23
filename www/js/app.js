@@ -18,6 +18,11 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services'])
             // org.apache.cordova.statusbar required
             StatusBar.styleDefault();
         }
+
+        // Initiate FastClick
+        window.addEventListener('load', function(){
+          FastClick.attach(document.body);
+        }, false);
     });
 })
 
