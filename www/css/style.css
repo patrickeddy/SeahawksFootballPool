@@ -1,1 +1,8 @@
 /* Empty. Add your own CSS if you like */
+.item-relative{
+	display: inline-block;
+	position: relative;
+}
+.list-center{
+	text-align: center;
+}
