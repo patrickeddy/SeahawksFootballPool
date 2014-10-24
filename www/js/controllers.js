@@ -1,12 +1,24 @@
 angular.module('starter.controllers', [])
 
+.controller('TabsCtrl', function($scope){
+    $scope.game = JSON.parse(localStorage.getItem("game"));
+    if ($scope.game === null)
+      $scope.game = {};
+})
+
+
 .controller('DashCtrl', function($scope) {
-  $scope.game = JSON.parse(localStorage.getItem("game"));
-  $scope.winners = [];
-  if ($scope.game !== null){
-    for (var i = 0; i < 4; i++) {
-      $scope.winners.push($scope.game['qtr' + (i + 1) + 'Winner']);
-    }
+  $scope.quarters = [{}];
+
+  
+  for (var count = 0; count < 4; count++){
+    var quarter = {};
+    // Setting up this scopes quarters variable with the scores and winners
+    var scores = $scope.game["qtr" + (count + 1)];
+    quarter.score = scores[0] + "-" + scores[1];
+    quarter.winner = scores.winner;
+
+    $scope.quarters[count] = quarter;
   }
 })
 
@@ -36,8 +48,6 @@ angular.module('starter.controllers', [])
 })
 
 .controller('ResultsCtrl', function($scope, $location, $timeout, $ionicPopup) {
-
-  $scope.game = {};
 
   var sh_scores = [];
   var ot_scores = [];
@@ -91,17 +101,13 @@ angular.module('starter.controllers', [])
       }
       //    alert("gameTiles after point assignment:\n" + JSON.stringify(tileOptions));
 
-      // Getting the game scores by splitting the string
-      var scores = _.map($scope.game, function(num) {
-        return num.replace(/ /g, "").split("+");
-      });
-
+      // Getting the scores from the game scope object
       for (i = 0; i < 4; i++) {
-        sh_scores[i] = scores[i][0].slice(-1);
-        ot_scores[i] = scores[i][1].slice(-1);
+        sh_scores[i] = $scope.game["qtr" + (i + 1)][0];
+        ot_scores[i] = $scope.game["qtr" + (i + 1)][1];
       }
       for (var count = 0; count < 4; count++) {
-        $scope.game["qtr" + (count + 1) + "Winner"] = tileOptions[sh_scores[count]][ot_scores[count]];
+        $scope.game["qtr" + (count + 1)]["winner"] = tileOptions[(sh_scores[count] % 10)][(ot_scores[count] % 10)];
       }
 
       localStorage.setItem("game", JSON.stringify($scope.game));
