@@ -49,6 +49,9 @@ angular.module('starter.controllers', [])
 
 .controller('ResultsCtrl', function($scope, $location, $timeout, $ionicPopup) {
 
+  $scope.quarters =[1,2,3,4];
+
+
   var sh_scores = [];
   var ot_scores = [];
 

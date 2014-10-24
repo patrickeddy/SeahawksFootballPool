@@ -3,26 +3,13 @@
         <h1>Game Results</h1>
         <form name="gameResultsForm" ng-submit="generateWinners()">
             <div class="list">
-                <h5>Quarter 1</h5>
-                <label class="item item-input">
-                    <input type="number" value="{{game.qtr1[0]}}" ng-model="game.qtr1[0]" required>
-                    <input type="number" value="{{game.qtr1[1]}}" ng-model="game.qtr1[1]" required>
+                <div ng-repeat="quarter in quarters">
+                <h5>Quarter {{quarter}}</h5>
+                <label class="item item-input"> 
+                    <input class="number-input" type="number" value="{{game['qtr' + quarter][0]}}" ng-model="game['qtr' + quarter][0]" required>
+                    <input class="number-input" type="number" value="{{game['qtr' + quarter][1]}}" ng-model="game['qtr' + quarter][1]" required>
                 </label>
-                <h5>Quarter 2</h5>
-                <label class="item item-input">
-                    <input type="number" value="{{game.qtr2[0]}}" ng-model="game.qtr2[0]" required>
-                    <input type="number" value="{{game.qtr2[1]}}" ng-model="game.qtr2[1]" required>
-                </label>
-                <h5>Quarter 3</h5>
-                <label class="item item-input">
-                    <input type="number" value="{{game.qtr3[0]}}" ng-model="game.qtr3[0]" required>
-                    <input type="number" value="{{game.qtr3[1]}}" ng-model="game.qtr3[1]" required>
-                </label>
-                <h5>Quarter 4</h5>
-                <label class="item item-input">
-                    <input type="number" value="{{game.qtr4[0]}}" ng-model="game.qtr4[0]" required>
-                    <input type="number" value="{{game.qtr4[1]}}" ng-model="game.qtr4[1]" required>
-                </label>
+            </div>
             </div>
             <input class="button button-block button-positive" type="submit" value="Get Winners">
             </button>
