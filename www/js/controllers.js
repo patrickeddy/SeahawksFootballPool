@@ -1,22 +1,22 @@
 angular.module('starter.controllers', [])
 
 .controller('TabsCtrl', function($scope){
-    $scope.game = JSON.parse(localStorage.getItem("game"));
-    if ($scope.game === null)
-      $scope.game = {};
+  $scope.game = [];
 })
 
 
 .controller('DashCtrl', function($scope) {
-  $scope.quarters = [{}];
+  var lastGameScores = JSON.parse(localStorage.getItem("game"));
 
-  
+  $scope.quarters = [];
+  $scope.count = 0;
   for (var count = 0; count < 4; count++){
     var quarter = {};
     // Setting up this scopes quarters variable with the scores and winners
-    var scores = $scope.game["qtr" + (count + 1)];
+    var scores = lastGameScores[count];
     quarter.score = scores[0] + "-" + scores[1];
     quarter.winner = scores.winner;
+    quarter.id = count + 1;
 
     $scope.quarters[count] = quarter;
   }
@@ -48,10 +48,7 @@ angular.module('starter.controllers', [])
 })
 
 .controller('ResultsCtrl', function($scope, $location, $timeout, $ionicPopup) {
-
-  $scope.quarters =[1,2,3,4];
-
-
+  $scope.quarters =[0,1,2,3];
   var sh_scores = [];
   var ot_scores = [];
 
@@ -106,13 +103,12 @@ angular.module('starter.controllers', [])
 
       // Getting the scores from the game scope object
       for (i = 0; i < 4; i++) {
-        sh_scores[i] = $scope.game["qtr" + (i + 1)][0];
-        ot_scores[i] = $scope.game["qtr" + (i + 1)][1];
+        sh_scores[i] = $scope.game[i][0];
+        ot_scores[i] = $scope.game[i][1];
       }
       for (var count = 0; count < 4; count++) {
-        $scope.game["qtr" + (count + 1)]["winner"] = tileOptions[(sh_scores[count] % 10)][(ot_scores[count] % 10)];
+        $scope.game[count].winner = tileOptions[(sh_scores[count] % 10)][(ot_scores[count] % 10)];
       }
-
       localStorage.setItem("game", JSON.stringify($scope.game));
       $location.path("/tab/dash");
       //

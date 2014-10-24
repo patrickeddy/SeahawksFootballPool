@@ -4,10 +4,10 @@
         <form name="gameResultsForm" ng-submit="generateWinners()">
             <div class="list">
                 <div ng-repeat="quarter in quarters">
-                <h5>Quarter {{quarter}}</h5>
+                <h4>Quarter {{quarter + 1}}</h4>
                 <label class="item item-input"> 
-                    <input class="number-input" type="number" value="{{game['qtr' + quarter][0]}}" ng-model="game['qtr' + quarter][0]" required>
-                    <input class="number-input" type="number" value="{{game['qtr' + quarter][1]}}" ng-model="game['qtr' + quarter][1]" required>
+                    <input type="number" placeholder="Seahawks" value="{{game[quarter][0]}}" ng-model="game[quarter][0]" required>
+                    <input type="number" value="{{game[quarter][1]}}" placeholder="Other team" ng-model="game[quarter][1]" required>
                 </label>
             </div>
             </div>

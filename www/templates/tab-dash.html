@@ -4,7 +4,7 @@
             <h1>Last Game Winners</h1>
             <div ng-repeat="quarter in quarters">
             <label class="item list-item" >
-                <h2>Quarter Number</h2>
+                <h2>Quarter {{quarter.id}}</h2>
                 <p>{{quarter.score}} | <strong>{{quarter.winner.name}}</strong>
                 </p>
             </label>
