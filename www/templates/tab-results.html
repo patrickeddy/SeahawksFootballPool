@@ -1,19 +1,19 @@
 <ion-view title="Results">
-    <ion-content class="padding">
-        <form name="gameResultsForm" ng-submit="generateWinners()">
-            <div class="list list-center">
-                <div ng-repeat="quarter in quarters">
-                <h4>Quarter {{quarter + 1}}</h4>
-                <label class="item item-input item-relative"> 
-                    <input type="number" placeholder="Seahawks" value="{{game[quarter][0]}}" ng-model="game[quarter][0]" required>
-                </label>
-                <label class="item item-input item-relative">
-                    <input type="number" value="{{game[quarter][1]}}" placeholder="Other team" ng-model="game[quarter][1]" required>
-                </label>
-            </div>
-            </div>
-            <input class="button button-block button-positive" type="submit" value="Get Winners">
-            </button>
-        </form>
-    </ion-content>
+<ion-content class="padding">
+<form name="gameResultsForm" ng-submit="generateWinners()">
+    <div class="list list-center">
+        <div ng-repeat="quarter in quarters">
+            <h4>Quarter {{quarter + 1}}</h4>
+            <label class="item item-input item-relative">
+                <input type="number" placeholder="Seahawks" value="{{game[quarter][0]}}" ng-model="game[quarter][0]" required>
+            </label>
+            <label class="item item-input item-relative">
+                <input type="number" value="{{game[quarter][1]}}" placeholder="Other team" ng-model="game[quarter][1]" required>
+            </label>
+        </div>
+    </div>
+    <input class="button button-block button-positive" type="submit" value="Get Winners">
+    </button>
+</form>
+</ion-content>
 </ion-view>

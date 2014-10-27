@@ -1,19 +1,19 @@
 <ion-view title="Football Pool">
-    <ion-content class="padding">
-        <div class="list" ng-show="quarters">
-            <h1>Last Game Winners</h1>
-            <div ng-repeat="quarter in quarters">
-            <label class="item list-item" >
-                <h2>Quarter {{quarter.id}}</h2>
-                <p>{{quarter.score}} | <strong>{{quarter.winner.name}}</strong>
-                </p>
-            </label>
-        </div>
-        </div>
-        <div class="padding" ng-hide="quarters" style="text-align:center;">
-            <h3>The winners of the last game show up here.</h3>
-            <p>Here's a picture of a football to get you started.</p>
-            <img class="padding" src="img/football.png" width=40% />
-        </div>
-    </ion-content>
+<ion-content class="padding">
+<div class="list" ng-show="quarters">
+    <h1>Last Game Winners</h1>
+    <div ng-repeat="quarter in quarters">
+        <label class="item list-item" >
+            <h2>Quarter {{quarter.id}}</h2>
+            <p>{{quarter.score}} | <strong>{{quarter.winner.name}}</strong>
+            </p>
+        </label>
+    </div>
+</div>
+<div class="padding" ng-hide="quarters" style="text-align:center;">
+    <h3>The winners of the last game show up here.</h3>
+    <p>Here's a picture of a football to get you started.</p>
+    <img class="padding" src="img/football.png" width=40% />
+</div>
+</ion-content>
 </ion-view>

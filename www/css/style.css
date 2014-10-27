@@ -1,8 +1,14 @@
 /* Empty. Add your own CSS if you like */
 .item-relative{
 	display: inline-block;
-	position: relative;
+	width: 50%;
 }
 .list-center{
 	text-align: center;
+}
+.keyboard-open .tabs{
+	display:none;
+}
+.keyboard-open .has-tabs{
+	bottom:0;
 }
