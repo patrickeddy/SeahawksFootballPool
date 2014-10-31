@@ -2,11 +2,13 @@ angular.module('starter.controllers', [])
 
 .controller('TabsCtrl', function($scope) {
     $scope.game = [];
+    $scope.grid = [];
 })
 
 
 .controller('DashCtrl', function($scope) {
     var lastGameScores = JSON.parse(localStorage.getItem("game"));
+    $scope.grid = JSON.parse(localStorage.getItem("grid"));
 
     $scope.quarters = [];
     $scope.count = 0;
@@ -20,6 +22,29 @@ angular.module('starter.controllers', [])
 
         $scope.quarters[count] = quarter;
     }
+    var Grid = React.createClass({
+        getInitialState: function() {
+            return {
+                data: this.props.data
+            };
+        },
+        render: function() {
+            return (
+                React.DOM.table(null, React.DOM.tbody(null,
+                    this.state.data.map(function(row) {
+                        return (
+                            React.DOM.tr(null, row.map(function(cell) {
+                                return React.DOM.td(null, cell.name);
+                            }))
+                        );
+                    })
+                ))
+            );
+        }
+    });
+    $scope.table = React.render(Grid({
+        data: $scope.grid
+    }), document.getElementById("grid"));
 })
 
 .controller('PlayersCtrl', function($scope, $location, Players, $ionicPopup) {
@@ -109,6 +134,8 @@ angular.module('starter.controllers', [])
             for (var count = 0; count < 4; count++) {
                 $scope.game[count].winner = tileOptions[(sh_scores[count] % 10)][(ot_scores[count] % 10)];
             }
+            $scope.grid = tileOptions;
+            localStorage.setItem("grid", JSON.stringify($scope.grid));
             localStorage.setItem("game", JSON.stringify($scope.game));
             $location.path("/tab/dash");
             //

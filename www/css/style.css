@@ -12,3 +12,10 @@
 .keyboard-open .has-tabs{
 	bottom:0;
 }
+table{
+	border-collapse: collapse;
+	overflow: auto;
+}
+td{
+	border: 1px solid black;
+}
