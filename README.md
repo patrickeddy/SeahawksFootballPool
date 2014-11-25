@@ -8,6 +8,6 @@ Application is made with the [Ionic Framework](http://ionicframework.com/) and u
 **Plea for help**:
 
 - [ ] Fork this and make it work with any team
-- [ ] Create a backend to support this ionic client. 
+- [ ] Create a backend to support client
 
 - [x] *I'll send you cookies.*
