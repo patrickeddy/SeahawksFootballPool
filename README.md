@@ -5,13 +5,13 @@ Crafted delicately with the [Ionic Framework](http://ionicframework.com/) and us
 
 #Instructions to run
 
-**Mac / Linux**
+###Mac / Linux
 1. Download/clone this repository
 2. Navigate this repository's directory in terminal.
 3. Install the [Ionic framework](http://ionicframework.com/getting-started).
 4. Type `ionic serve` and hit enter.
 
-**Android Phone**
+###Android Phone
 1. Open this repository on your Android powered phone's browser.
 2. Click builds > Android > **FootballPool-debug.apk**
 3. Click the apk file and install*
